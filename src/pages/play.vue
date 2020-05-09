@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <div class="arrow" @click="$router.back()"></div>
     <div id="player" class="player"></div>
   </div>
 </template>
@@ -12,11 +13,11 @@ export default {
       new DPlayer({
         container: document.getElementById("player"),
         video: {
-          url: this.$route.query.path
-        }
+          url: this.$route.query.path,
+        },
       });
     });
-  }
+  },
 };
 </script>
 
@@ -45,11 +46,23 @@ export default {
   font-size: 14px;
   white-space: normal;
 }
-.mask{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    z-index: 14;
+.mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 14;
+}
+.arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-block;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  width: 20px;
+  height: 20px;
+  border-color: #000;
+  transform: rotate(-135deg);
 }
 </style>
